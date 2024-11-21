@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepCopy&ShallowCopy</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+
+</head>
+<body>
+    <script>
+        //shallowCopy occurs when we copy the reference of an object to a new variable,in this the top-level properties as well as nested object or arrays are also copiedso any changes made in one also reflect in other.
+        // let employee = {
+        //     eid: "E102",
+        //     ename: "Jack",
+        //     eaddress: "New York",
+        //     salary: 50000,
+        //     details:function(){
+        //         return 'Employee name:'+this.ename +' Salary- '+this.salary
+        //     }
+        // }
+
+        // console.log("Employee=> ", employee);
+        // let newEmployee = employee;    // Shallow copy
+        // console.log("New Employee=> ", newEmployee);
+        // console.log('employee details',employee.details());
+        // console.log('new employee details',newEmployee.details())
+        
+        // console.log("---------After modification----------");
+        // newEmployee.ename = "Beck";
+        // newEmployee.details = function () {
+        //     return "Employee ID: " + this.eid 
+        //         + "-->Salary: " + this.salary;
+        // }
+        // console.log("Employee=> ", employee);
+        // console.log("New Employee=> ", newEmployee);
+        // console.log('employee details',employee.details());
+        // console.log('new employee details',newEmployee.details())
+        // Name of the employee as well as 
+        // newEmployee is changed.
+        //made changes in the details function of newEmployee but that reflects in the employee as well because they are sharing same memory reference.
+
+        //DeepCopy creates a independent copy of the object including all nested objects or arrays, so changes made to one object do not affect the other
+        // let employee = {
+        //     eid: "E102",
+        //     ename: "Jack",
+        //     eaddress: "New York",
+        //     salary: 50000,
+        //     details:function(){
+        //         return 'Employee name:'+this.ename +' Salary- '+this.salary
+        //     }
+        // }
+
+        // console.log("Employee=> ", employee);
+        // let newEmployee = JSON.parse(JSON.stringify(employee));// Deep copy
+        // console.log('new employee details',newEmployee.details())//This will give an error,bcoz in deep copy we need to manually re-assign any methods
+        // newEmployee.details = employee.details;//functions are not preserved during serialization (JSON.stringify) and deserialization (JSON.parse). As a result, the details method is lost in the newEmployee object.
+        // console.log("New Employee=> ", newEmployee);
+        // console.log('employee details',employee.details());
+        // console.log('new employee details',newEmployee.details())//no error
+        
+        // console.log("---------After modification----------");
+        // newEmployee.ename = "Beck";
+        // newEmployee.details = function () {
+        //     return "Employee ID: " + this.eid 
+        //         + "-->Salary: " + this.salary;
+        // }
+        // console.log("Employee=> ", employee);
+        // console.log("New Employee=> ", newEmployee);
+        // console.log('employee details',employee.details());
+        // console.log('new employee details',newEmployee.details())
+
+       // import _ from 'lodash';
+        //const lodash = require('lodash');
+        let employee = {
+            eid: "E102",
+            ename: "Jack",
+            eaddress: "New York",
+            salary: 50000,
+            details:function(){
+                return 'Employee name:'+this.ename +' Salary- '+this.salary
+            }
+        }
+
+        console.log("Employee=> ", employee);
+        let deepCopy = _.cloneDeep(employee);
+        console.log('DeepCopy',deepCopy);
+        console.log('employee details',employee.details());
+        console.log('deepCopy employee details',deepCopy.details())
+        
+        console.log("---------After modification----------");
+        deepCopy.ename = "Beck";
+        deepCopy.details = function () {
+            return "Employee ID: " + this.eid 
+                + "-->Salary: " + this.salary;
+        }
+        console.log("Employee=> ", employee);
+        console.log("New Employee=> ", deepCopy);
+        console.log('employee details',employee.details());
+        console.log('new employee details',deepCopy.details())
+
+    </script>
+</body>
+</html>

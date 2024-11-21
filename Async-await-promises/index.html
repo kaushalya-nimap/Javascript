@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //async function always return a promise either you return a value then that non-promise value will be wrapped in a promise and then return
+        // async function getData(){
+        //     return 'hello'
+        // }
+        // const data=getData()
+        // console.log(data)                //this code will return a promise
+
+        // data.then(res=>console.log(res)) //this will give the value
+
+    //     const p=new Promise((resolve,reject)=>{
+    //         resolve('Promise resolved')
+    //     })
+    //     async function getData(){
+    //         return p
+    //     }
+    //     const data=getData()
+    //    // console.log(data)               
+    //     data.then((res)=>console.log(res))
+
+    //async and await are used to handle promises,and await can only be used in async function
+    // const p=new Promise((resolve,reject)=>{
+    // resolve('Promise resolved')
+    // })
+    // function getData(){
+    //     p.then((res)=>console.log(res))
+    // }
+    // //getData()
+    // async function getPromise(){
+    //     const val=await p
+    //     console.log(val)
+    // }
+    //getPromise()
+    //here i am displaying promise with resolve in a normal function and in an async function in normal function i have to use the .the res in order to display the promise value but in async function i am using the await p.await keyword is used before a promise
+
+    // const p=new Promise((resolve,reject)=>{
+    //     setTimeout(() => {
+    //         resolve('Promise resolved')
+    //     }, 5000);
+    //    })
+    // function getData(){
+    //     p.then((res)=>console.log(res))
+    //     console.log('hello')
+    // }
+    //getData()
+    // async function getPromise(){
+    //     const val=await p
+    //     console.log(val)
+    //     console.log('hello')
+    // }
+    // getPromise()
+    //in above code we can see how promises work in normal function and in async function
+
+
+
+    </script>
+</body>
+</html>
