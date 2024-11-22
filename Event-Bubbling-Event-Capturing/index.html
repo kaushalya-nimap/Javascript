@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventBubbling</title>
+    <style>
+        div{
+            min-width:100px;
+            min-height: 100px;
+            padding: 30px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="grandparent">
+        <div id="parent">
+            <div id="child"></div>
+        </div>
+    </div>
+<script>
+    // document.querySelector("#grandparent").addEventListener('click',()=>{
+    //     console.log("Grandparent clicked")
+    // })
+    // document.querySelector("#parent").addEventListener('click',()=>{
+    //     console.log("Parent clicked")
+    // })
+    // document.querySelector("#child").addEventListener('click',()=>{
+    //    console.log("Child clicked")
+    // })
+    // //above is an example of event bubbling-bubbling means coming out from inside, so if i clicked on child div--the o/p is child,parent,grandparent, so it is bubbling or coming up from the hierarchy.
+    // //defaut is bubbling, if you put false then also bubbling
+
+    // document.querySelector("#grandparent").addEventListener('click',()=>{
+    //     console.log("Grandparent clicked")
+    // },true)
+    // document.querySelector("#parent").addEventListener('click',()=>{
+    //     console.log("Parent clicked")
+    // },true)
+    // document.querySelector("#child").addEventListener('click',()=>{
+    //     console.log("Child clicked")
+    // },true)
+    //above is example of event capturing, that goes dow the hierarchy,so if i click on chind the O/P:-gp,p,c i.e going down from top hierarchy to the event wher i have clicked
+
+   document.querySelector("#grandparent").addEventListener('click',(e)=>{
+        console.log("Grandparent clicked")
+           },true)                                             
+    document.querySelector("#parent").addEventListener('click',(e)=>{
+        console.log("Parent clicked")
+        e.stopPropagation()
+    },true)                                            
+    document.querySelector("#child").addEventListener('click',()=>{
+        console.log("Child clicked")
+    },true)   
+    //true i.e capturing has higher precende than false i.e bubbling                                          
+    //when e.stopPropogation()it will stop the propogation at that point the o/p for above is c,p,gp since all false it is bulling out from below,but here i have stop propogation at parent so it wont go further up from parent
+    //when true i.e capturing the o/p is gp,p it does not go further below parent
+</script>
+</body>
+</html>
