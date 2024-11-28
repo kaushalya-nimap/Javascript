@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debounced Scroll Event</title>
+  <style>
+    body {
+      height: 2000px; /* Create scrollable content */
+    }
+  </style>
+</head>
+<body>
+  <h1>Scroll Down</h1>
+  <p id="scrollResult"></p>
+
+  <script>
+    // Debounce function
+    function debounce(fn, delay) {
+      let timer;
+      return function (...args) {
+        const context = this;
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(context, args), delay);
+      };
+    }
+
+    // Debounced scroll handler
+    const handleScroll = debounce(() => {
+      const scrollResult = document.getElementById('scrollResult');
+      scrollResult.textContent = `Scroll position: ${window.scrollY}px`;
+      console.log(`Scrolled to: ${window.scrollY}px`);
+    }, 20);
+
+    window.addEventListener('scroll', handleScroll);
+  </script>
+</body>
+</html>
