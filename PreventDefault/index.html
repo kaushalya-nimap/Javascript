@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Submission Reload Test</title>
+</head>
+<body>
+  <h1>Form Submission Reload Test</h1>
+
+  <!-- Form -->
+  <form id="myForm" action="https://example.com" method="GET">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required />
+    <br /><br />
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- JavaScript -->
+  <script>
+    // Get the form element
+    const form = document.getElementById("myForm");
+
+    // Add event listener for form submission
+    form.addEventListener("submit", (event) => {
+        // event.preventDefault();
+        //Without above prevent default the page redirects to another browser.
+      // Log message to console before submission
+      console.log("Form submitted!");
+      
+      // Log input value
+      const name = document.getElementById("name").value;
+      console.log("Name entered:", name);
+      
+      // No preventDefault here, so the page will reload
+    });
+  </script>
+</body>
+</html>
