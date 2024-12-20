@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function auth(user, password) {
+        try {
+          if (user === "admin" && password === "12345")
+            console.log("valid credentials");
+          else throw new Error("Invalid credentials");
+        } catch (error) {
+          console.log(error.message);
+        } finally {
+          console.log("Authentication completed");
+        }
+      }
+      auth('admin','12345')
+      auth('user','1234')
+      console.log('----------------')
+      function multi() {
+        try {
+          let n = Math.random();
+          if (n > 0.5)
+            console.log(`Passed--Random number ${n} is more than 0.5`);
+          else throw new Error(`Failed---Random number ${n} is less than 0.5`);
+        } catch (err) {
+          console.log(err.message);
+        } finally {
+          console.log("Function completed");
+        }
+      }
+      multi();
+    </script>
+  </body>
+</html>

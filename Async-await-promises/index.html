@@ -59,6 +59,25 @@
     // getPromise()
     //in above code we can see how promises work in normal function and in async function
 
+    const p=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve('Promise resolved')
+    },1000)
+})
+function getData(){
+    console.log(p)
+     //p.then((res)=>console.log(res))
+     console.log('hello')
+}
+getData()
+async function getPromise(){
+    const val=await p
+    console.log(val)
+    console.log('hello-----')
+    console.log('world')
+}
+getPromise()
+//console.log(val)
 
 
     </script>
