@@ -59,25 +59,57 @@
     // getPromise()
     //in above code we can see how promises work in normal function and in async function
 
-    const p=new Promise((resolve,reject)=>{
-    setTimeout(()=>{
+//     const p=new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve('Promise resolved')
+//     },1000)
+// })
+// function getData(){
+//     console.log(p)
+//      //p.then((res)=>console.log(res))
+//      console.log('hello')
+// }
+// getData()
+// async function getPromise(){
+//     const val=await p
+//     console.log(val)
+//     console.log('hello-----')
+//     console.log('world')
+// }
+// getPromise()
+// //console.log(val)
+
+const p=new Promise((resolve,reject)=>
         resolve('Promise resolved')
-    },1000)
+)
+const q=new Promise((resolve,reject)=>{
+    setTimeout(() => {
+        resolve('promise 2')
+    }, 1000);
 })
-function getData(){
-    console.log(p)
-     //p.then((res)=>console.log(res))
-     console.log('hello')
-}
-getData()
-async function getPromise(){
-    const val=await p
-    console.log(val)
-    console.log('hello-----')
+
+
+function data(){
+    q.then((res)=>console.log(res))
+    console.log('hello')
+    p.then((res)=>console.log(res))
     console.log('world')
 }
-getPromise()
-//console.log(val)
+data()
+console.log('-----------')
+async function getData(){
+    console.log('hello 1')
+    let val=await q
+    console.log(val+'1..')
+    let val1=await p
+    console.log(val1+'1..')
+    console.log('world 1')
+    
+    //return p.then((res)=>console.log(res))
+}
+getData()
+//getData()
+//console.log(getData())
 
 
     </script>

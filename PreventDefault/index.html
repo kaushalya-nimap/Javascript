@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Submission Reload Test</title>
-</head>
-<body>
-  <h1>Form Submission Reload Test</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Submission Reload Test</title>
+  </head>
+  <body>
+    <h1>Form Submission Reload Test</h1>
 
-  <!-- Form -->
-  <form id="myForm" action="https://example.com" method="GET">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" placeholder="Enter your name" required />
-    <br /><br />
-    <button type="submit">Submit</button>
-  </form>
+    <!-- Form -->
+    <form id="myForm" action="https://roti.com" method="GET">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your name"
+        required
+      />
+      <br /><br />
+      <button type="submit">Submit</button>
+    </form>
 
-  <!-- JavaScript -->
-  <script>
-    // Get the form element
-    const form = document.getElementById("myForm");
+    <!-- JavaScript -->
+    <script>
+                // Get the form element
+                const form = document.getElementById("myForm");
 
-    // Add event listener for form submission
-    form.addEventListener("submit", (event) => {
-        // event.preventDefault();
-        //Without above prevent default the page redirects to another browser.
-      // Log message to console before submission
-      console.log("Form submitted!");
-      
-      // Log input value
-      const name = document.getElementById("name").value;
-      console.log("Name entered:", name);
-      
-      // No preventDefault here, so the page will reload
-    });
-  </script>
-</body>
+                // Add event listener for form submission
+                form.addEventListener("submit", (event) => {
+                    event.preventDefault();
+                    //Without above prevent default the page redirects to another browser.
+                  // Log message to console before submission
+                  console.log("Form submitted!");
+
+                  // Log input value
+                  const name = document.getElementById("name").value;
+                  console.log("Name entered:", name);
+
+                  // No preventDefault here, so the page will reload
+                });
+                // If you remove the event.preventDefault() line:
+                // Submitting the form will cause the browser to navigate to https://roti.com (or the URL specified in the action attribute).
+                // The page will reload, and any JavaScript code after the form submission (in the event listener) will not execute because the browser navigates away.
+
+                // Custom Behavior: Trigger custom logic (e.g., show a confirmation modal) instead of the default submission.
+                // In your code, calling event.preventDefault() allows you to process the form submission (e.g., log input values) without reloading or navigating away from the current page.
+    </script>
+  </body>
 </html>
