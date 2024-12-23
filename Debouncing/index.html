@@ -18,25 +18,25 @@ const getData=()=>{
     //here if i type something in input i wil get the clg for every character typed to solve this debouncing is used
 }
 
-// const debounce=function(fn,d){
-//     let timer;
-//      function test(){
-//         let context=this,args=arguments;
-//         clearTimeout(timer);
-//         timer=setTimeout(()=>{
-//             fn.apply(context,arguments)
-//         },d)
-//     }
-//     return test
-// }
-
-const debounce = (fn, delay) => {
+const debounce=function(fn,d){
     let timer;
-    return (...args) => {
+     function test(){
+        let context=this,args=arguments;
         clearTimeout(timer);
-        timer = setTimeout(() => fn(...args), delay);
-    };
-};
+        timer=setTimeout(()=>{
+            fn.apply(context,arguments)
+        },d)
+    }
+    return test
+}
+
+// const debounce = (fn, delay) => {
+//     let timer;
+//     return (...args) => {
+//         clearTimeout(timer);
+//         timer = setTimeout(() => fn(...args), delay);
+//     };
+// };
 const betterFunction= debounce(getData,300)
 
 

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+ 
+        // function revStr(str){
+        // let reversedStr=''
+        // let n=str.length
+        // for(let i=n-1;i>=0;i--){
+        // reversedStr+=str[i]
+        // }
+        // return reversedStr
+        // }
+        // console.log(revStr('hello'))
+
+        // function palindrome(num){
+        // let rem=0,sum=0;
+        // while(num>0){
+        // rem=num%10;
+        // sum=(sum*10)+rem
+        // num=Math.floor(num/10)
+        // }
+        // return sum;
+        // }
+        // console.log(palindrome(123))
+       
+        // function checkPalindrome(num){
+        // let rem=0;sum=0;
+        // let originalNum=num;
+        // while(num>0){
+        // rem=num%10;
+        // sum=(sum*10)+rem
+        // num=Math.floor(num/10)
+        // }
+        // const message=sum===originalNum?'is a palindrome':'is not a palindrome'
+        // return{
+        // sum,
+        // message
+        // }
+        // }
+        // const number=342
+        // const res=checkPalindrome(number)
+        // console.log(Reverse of ${number} is ${res.sum} and it ${res.message})
+
+        ////armstrong of a number
+        // function checkArmstrong(num) {
+        // let rem = 0, sum = 0;
+        // let originalNum = num;
+        // const numberOfDigits = num.toString().length;
+        // while (num > 0) {
+        // rem = num % 10;
+        // sum += rem ** numberOfDigits;
+        // num = Math.floor(num / 10);
+        // }
+        // const message = sum === originalNum ? 'is an Armstrong number' : 'is not an Armstrong number';
+        // return {
+        // sum,
+        // message
+        // };
+        // }
+        // const input = prompt('enter a number')
+        // const number = parseInt(input);
+        // const res = checkArmstrong(number);
+        // console.log(res.message);
+
+        // function revArray(arr){
+        // let n=arr.length;
+        // for(let i=0;i<n/2;i++){
+        // let temp=arr[i]
+        // arr[i]=arr[n-1-i]
+        // arr[n-1-i]=temp
+        // }
+        // return arr;
+        // }
+        // console.log(revArray([1,9,6,4]))
+
+        // function sortArr(arr){
+        // let n=arr.length
+        // for(let i=0;i<n;i++){
+        // for(let j=i+1;j<n;j++){
+        // if(arr[i]>arr[j]){
+        // let temp=arr[i]
+        // arr[i]=arr[j]
+        // arr[j]=temp
+        // }
+        // }
+        // }
+        // return arr;
+        // }
+        // console.log(sortArr([1,9,3,8,7,5,7]))
+
+        // function max(arr){
+        // let n=arr.length;
+        // let first=arr[0]
+        // for(let i=1;i<n;i++)
+        // if(arr[i]>first)
+        // first=arr[i]
+        // let second=Number.MIN_VALUE
+        // for(let i=0;i<n;i++)
+        // if(arr[i]>second && arr[i]<first)
+        // second=arr[i]
+        // let third=Number.MIN_VALUE
+        // for(let i=0;i<n;i++)
+        // if(arr[i]>third &&arr[i]<second)
+        // third=arr[i]
+        // return second
+        // }
+        // console.log(max([1,6,8,4,10,11,4,2]))
+
+       
+
+        // function dupArray(str) {
+        // let duplicates = str.split('').filter((value, index) =>
+        // str.indexOf(value) !== index && str.lastIndexOf(value) === index).sort((a, b) => a - b)
+        // return duplicates;
+        // }
+        // console.log(dupArray('programming'))
+
+        // function capital(str)
+        // {
+        // let n=str.length;
+        // let result=''
+        // let firstChar=str[0]
+        // if(firstChar>='a' && firstChar<='z')
+        // {
+        // result+=String.fromCharCode(firstChar.charCodeAt(0)-32)
+        // }
+        // else{
+        // result+=firstChar
+        // }
+        // for(let i=1;i<n;i++){
+        // result+=str[i]
+        // }
+        // return result
+        // }
+        // console.log(capital('hello'))
+
+        //capitalize each word after space
+        // function tileCase(str){
+        // let capitalNext=true;
+        // let result=''
+        // for(let i=0;i<str.length;i++){
+        // const char=str[i]
+        // if(char===' '){
+        // result+=char;
+        // capitalNext=true
+        // }
+        // else{
+        // if(capitalNext){
+        // if(char>='a'&&char<='z'){
+        // result+=String.fromCharCode(char.charCodeAt(0)-32)
+        // }
+        // else{
+        // result+=char
+        // }
+        // capitalNext=false
+        // }
+        // else{
+        // if(char>='A'&&char<='Z'){
+        // result+=String.fromCharCode(char.charCodeAt(0)+32)
+        // }
+        // else{
+        // result+=char
+        // }
+        // }
+        // }
+        // }
+        // return result
+        // }
+        // console.log(tileCase('hello wOrld.'))
+
+        //capitalize the string after dot
+        // function titleCase(str){
+        // let result=''
+        // let capitalNext=true
+        // for(let i=0;i<str.length;i++){
+        // const char=str[i]
+        // if(char==='.'){
+        // result+=char
+        // capitalNext=true
+        // }
+        // else if(char===' '){
+        // result+=char
+        // }
+        // else{
+        // if(capitalNext){
+        // if(char>='a'&&char<='z'){
+        // result+=String.fromCharCode(char.charCodeAt(0)-32)
+        // }
+        // else{
+        // result+=char
+        // }
+        // capitalNext=false;
+        // }
+        // else{
+        // if(char>='A'&&char<='Z'){
+        // result+=String.fromCharCode(char.charCodeAt(0)+32)
+        // }
+        // else{
+        // result+=char;
+        // }
+        // }
+        // }
+        // }
+        // return result;
+        // }
+        // console.log(titleCase('hello WOrld.tHis is me'))
+
+        // function fibonacciIterative(n) {
+        // if (n <= 0) return 0;
+        // if (n === 1) return 1;
+        // let a = 0, b = 1, fib;
+        // for (let i = 2; i <= n; i++) {
+        // fib = a + b;
+        // a = b;
+        // b = fib;
+        // }
+        // return b;
+        // }
+        // const num = 6; // Change this value to find the Fibonacci number at a different position
+        // console.log(Fibonacci of ${num} is ${fibonacciIterative(num)});
+
+        ////finding even or odd number elements in given array
+        // const num = [1, 2, 3, 8, 9, 12, 16]
+        // const even = num.filter((ele) => { ele % 2 === 0 })
+        // const odd = num.filter((ele) => { ele % 2 !== 0 })
+        // clg(even)
+        // clg(odd)
+
+        ////sum of elements in array
+        // const arr = [1, 9, 4, 6, 1]
+        // const sumArr = arr.reduce((sum, num) => { return sum + num }, 0}
+        // clg(sumArr)
+
+        ////find factorial of a number
+        // const input = prompt('enter a number')
+        // let fact = 1
+        // if (input < 0)
+        // clg('wrong input')
+        // else {
+        // for (let i = 1; i <= input; i++) {
+        // fact = fact * i
+        // }
+        // clg(fact)
+        // }
+
+        ////factorial for a range of number example 1 to 10
+        // const start = prompt('Enter the starting number:');
+        // const end = prompt('Enter the ending number:');
+        // for (let input = start; input <= end; input++) {
+        // let fact = 1;
+        // if (input < 0) {
+        // console.log(Factorial of ${input} is not defined.);
+        // } else {
+        // for (let i = 1; i <= input; i++) {
+        // fact = fact * i;
+        // }
+        // console.log(Factorial of ${input} is: ${fact});
+        // }
+        // }
+
+        ////find prime number in javascript
+        // var number = prompt('Enter a number:');
+        // number = Number(number); // Convert input to a number
+        // if (number === 1) {
+        // console.log('Neither prime nor composite');
+        // } else if (number <= 0) {
+        // console.log('Invalid number');
+        // } else if (number === 2) {
+        // console.log(${number} is a prime number); // Handle the case for 2
+        // } else {
+        // var result = ${number} is a prime number; 22 // Assume it is prime
+        // for (let i = 2; i < number; i++) {
+        // if (number % i === 0) {
+        // result = ${number} is not a prime number; // Update result if a divisor is found
+        // break; // Exit the loop
+        // }
+        // }
+        // console.log(result);
+        // }
+
+        ////find prime number for a range of number
+        // var start = prompt('Enter the start of the range:');
+        // var end = prompt('Enter the end of the range:');
+        // start = Number(start);
+        // end = Number(end);
+        // if (start > end) {
+        // console.log('Invalid range: start must be less than or equal to end.');
+        // } else {
+        // for (let number = start; number <= end; number++) {
+        // if (number === 1) {
+        // console.log(${number} is neither prime nor composite);
+        // } else if (number < 1) {
+        // console.log(${number} is a negative number);
+        // } else if (number === 2) {
+        // console.log(${number} is a prime number);
+        // } else {
+        // var isPrime = ${number} is a prime number; // Assume it is prime
+        // for (let i = 2; i <= Math.sqrt(number); i++) {
+        // if (number % i === 0) {
+        // isPrime = ${number} is not a prime number; // Found a divisor
+        // break; // Exit the loop
+        // }
+        // }
+        // // Use ternary operator for logging
+        // console.log(isPrime);
+        // }
+        // }
+        // }
+
+        ///swap two value using 3rd variable
+        // let a = 10;
+        // let b = 20;
+        // let temp = a;
+        // a = b
+        // b = temp
+        // // or
+        // //[a, b] = [b, a];
+        // console.log(value of a is ${a} and value of b is ${b})
+
+        //// Multiplication of a number
+        // const userInput = prompt("Enter a number to display its multiplication table:");
+        // const number = parseInt(userInput); // Convert input to an integer
+        // if (number) {
+        // for (let i = 1; i <= 10; i++) {
+        // console.log(${number} x ${i} = ${number * i}); // Show each line of the table in an alert
+        // }
+        // } else {
+        // alert("Please enter a valid number."); // Handle invalid input
+        // }
+
+        //// Curried function to find the intersection of two arrays
+        // function findIntersection(arr1) {
+        // return function (arr2) {
+        // const intersection = [];
+        // for (let i = 0; i < arr1.length; i++) {
+        // if (arr2.includes(arr1[i]) && !intersection.includes(arr1[i])) {
+        // intersection.push(arr1[i]); // Add to intersection if not already included
+        // }
+        // }
+        // return intersection; // Return the intersection array
+        // };
+        // }
+        // const array1 = [1, 2, 3, 4, 5];
+        // const array2 = [4, 5, 6, 7, 8];
+        // const getIntersection = findIntersection(array1);
+        // const result = getIntersection(array2);
+        // console.log(result); // Output: [4, 5]
+
+        ////code to print union of 2 array
+        // const array1 = [1, 2, 3, 4, 5];
+        // const array2 = [4, 5, 6, 7, 8];
+        // const union = array1.concat(array2)
+        // const unionAll = union.filter((value, index) => union.indexOf(value) === index)
+        // console.log(union)
+        // console.log(unionAll)
+
+        // function customSort(arr) {
+        // const n = arr.length; // Total length of the array
+        // const mid = Math.floor(n / 2); // Midpoint of the array
+        // for (let i = 0; i < n; i++) {
+        // for (let j = i + 1; j < n; j++) {
+        // if (arr[i] > arr[j]) {
+        // let temp = arr[i];
+        // arr[i] = arr[j];
+        // arr[j] = temp;
+        // }
+        // }
+        // }
+        // let sec = [];
+        // for (let i = mid; i < n; i++) {
+        // sec.push(arr[i]);
+        // }
+        // for (let i = 0; i < Math.floor(sec.length / 2); i++) {
+        // let temp = sec[i];
+        // sec[i] = sec[sec.length - 1 - i];
+        // sec[sec.length - 1 - i] = temp;
+        // }
+        // let sortedArray = [];
+        // for (let i = 0; i < mid; i++) {
+        // sortedArray.push(arr[i]);
+        // }
+        // for (let i = 0; i < sec.length; i++) {
+        // sortedArray.push(sec[i]);
+        // }
+        // return sortedArray;
+        // }
+        // const array = [10, 5, 8, 1, 7, 12, 6, 4, 9];
+        // const result = customSort(array);
+        // console.log(result); // Output: [1, 4, 5, 6, 12, 10, 8, 7]
+
+   
+<!-- ////code to print both the sequence and the sum
+// function fibonacci(num){
+//     let a=0;
+//     let b=1;
+//     let fibSeries=[]
+//     for(let i=0;i<num;i++){
+//         if(i===0)
+//         fibSeries.push(a)
+//         else if(i===1)
+//         fibSeries.push(b)
+//         else{
+//         let fib=a+b;
+//         fibSeries.push(fib)
+//         a=b;
+//         b=fib;
+//         }
+        
+//     }
+//     const sum=fibSeries.reduce((sum,num)=>sum+num,0)
+//     return{fibSeries, sum}
+// }
+// const number=5
+// const func=fibonacci(number)
+// console.log(func.fibSeries)
+// console.log(func.sum) -->
+
+
+// <!-- ////fibonacci to find upto a given number
+// function fibonacciUpToLimit(L) {
+//     let fibSeries = [];
+//     let a = 0, b = 1;
+
+//     while (a <= L) {
+//         fibSeries.push(a);
+//         let next = a + b;
+//         a = b;
+//         b = next;
+//     }
+
+//     return fibSeries;
+// }
+// console.log(fibonacciUpToLimit(10)); -->
+
+// <!-- //sum of digits in a number
+// function sumOfDigits(num) {
+//     let sum = 0;
+//     while (num > 0) {
+//         let rem = num % 10; // Get the last digit
+//         sum += rem; // Add the digit to the sum
+//         num = Math.floor(num / 10); // Remove the last digit
+//     }
+//     return sum; // Return the total sum of digits
+// }
+// console.log(sumOfDigits(123)); // Output: 6 (1 + 2 + 3)
+// console.log(sumOfDigits(456)); // Output: 15 (4 + 5 + 6) -->
+
+// <!-- //number of digits in a number
+// function countDigits(num) {
+//     let count = 0;
+//     while (num > 0) {
+//         count++; // Increment the digit count
+//         num = Math.floor(num / 10); // Remove the last digit
+//     }
+//     return count; // Return the total count of digits
+// }
+// console.log(countDigits(12345)); // Output: 5
+// console.log(countDigits(987)); // Output: 3 -->
+
+// count of digits
+// sum of digits
+// fibonacci
+// fibonacci sequence
+// fibonacci upto a range
+// armstrong of a number
+// customSort
+// union
+// intersection 
+// multiplication
+
+    </script>
+</body>
+</html>

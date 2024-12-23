@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call-Apply-Bind</title>
+</head>
+<body>
+    <script>
+        let name={
+            firstname:"John",
+            lastname:"Bell"
+        }
+        let printFullName=function(hometown,state){
+            console.log(this.firstname + " " +this.lastname+" from " +hometown +state)
+        }
+        let name2={
+            firstname:"Parth",
+            lastname:"Rane"
+        }
+        printFullName.call(name,"Mumbai","Maharashtra")
+        //Usage of CALL: Calls a function and sets its this to the provided object. Pass arguments one by one.the first argument is reference to the this variable.
+        printFullName.apply(name2,["Mumbai","Maharashtra"])
+        //the difference between call and bind method is how it is called and arguments are passed in array list.
+
+        let printMyName= printFullName.bind(name,"Mumbai","Maharashtra")
+        console.log(printMyName())
+        //here call and apply is readily available but incase of bind once the method is called we have to also invoke it separately
+        function multiply(a, b) {
+        return a * b;
+        }
+        
+        const double = multiply.bind(null, 2); // Pre-fill `a` with 2
+        console.log(double(5)); // 10
+        //bind is used when you want to create a new function for later use with a specific this.
+        // Common Use Cases:
+        // Borrowing methods.
+        // Working with dynamic arguments.
+        // Controlling this in event handlers or callbacks.
+        // Function currying.
+
+    </script>
+    
+</body>
+</html>

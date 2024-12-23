@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <form id="form">
+      <input type="text" placeholder="Type something" id="input" />
+      <button type="submit" id="submit">Submit</button>
+    </form>
+    <ul id="menu">
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+  </head>
+  <body>
+    <script>
+      const form = document.getElementById("form");
+      const input = document.getElementById("input");
+      const submit=document.getElementById('submit')
+
+      // Add a capturing event listener on the form
+      form.addEventListener(
+        "click",
+        (event) => {
+          console.log("Capturing event at form");
+        },
+        true // Enable capturing phase
+      );
+
+      // Add a bubbling event listener on the input
+      input.addEventListener("click", (event) => {
+        console.log("Input clicked");
+      });
+      const menu = document.getElementById("menu");
+
+      submit.addEventListener('click',(event)=>event.preventDefault)
+
+      // Event delegation: Attach the listener to the parent element
+      menu.addEventListener("click", (event) => {
+        if (event.target.tagName === "LI") {
+          console.log("You clicked:", event.target.textContent);
+        }
+      });
+    </script>
+  </body>
+</html>

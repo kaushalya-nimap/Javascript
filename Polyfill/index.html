@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name={
+            firstname:"Bob",
+            lastname:"Ross"
+        }
+        let printName=function(hometown,state,country){
+            console.log(this.firstname+" "+this.lastname+","+hometown+","+state+","+country)
+        }
+        let printMyName=printName.bind(name,"Mumbai",)
+        printMyName("Maharashtra","India")
+        //here the bind method is accessible by all other method
+        //Similarly if i have a mybind method that behaves exacty like the bind method, then put this function in prototype, then each and every function has access to that function
+    
+       Function.prototype.mybind=function(...args){
+        let obj=this;
+        params=args.slice(1)
+        return function(...args2){
+            obj.apply(args[0],[...params,...args2]);
+        }
+        }
+        //obj-->printName,args--->arguments passed i.e name
+        let printMyName2=printName.mybind(name,"Mumbai")
+        printMyName2("Maharashtra","India");
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debounced Button Click</title>
+</head>
+<body>
+  <h1>Debounced Button Click</h1>
+  <button id="debouncedButton">Click Me</button>
+  <p id="clickResult"></p>
+
+  <script>
+    // Debounce function
+    function debounce(fn, delay) {
+      let timer;
+      return function (...args) {
+        const context = this;
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(context, args), delay);
+      };
+    }
+
+    // Debounced click handler
+    const handleClick = debounce(() => {
+      const clickResult = document.getElementById('clickResult');
+      clickResult.textContent = "Button clicked!";
+      console.log("Button clicked!");
+    }, 1000);
+
+    document.getElementById('debouncedButton').addEventListener('click', handleClick);
+  </script>
+</body>
+</html>

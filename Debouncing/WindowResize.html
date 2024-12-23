@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debounced Resize Event</title>
+</head>
+<body>
+  <h1>Resize the window</h1>
+  <p id="resizeResult"></p>
+
+  <script>
+    // Debounce function
+    function debounce(fn, delay) {
+      let timer;
+      return function (...args) {
+        const context = this;
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(context, args), delay);
+      };
+    }
+
+    // Debounced resize handler
+    const handleResize = debounce(() => {
+      const resizeResult = document.getElementById('resizeResult');
+      resizeResult.textContent = `Window size: ${window.innerWidth}x${window.innerHeight}`;
+      console.log(`Resized to: ${window.innerWidth}x${window.innerHeight}`);
+    }, 10);
+
+    window.addEventListener('resize', handleResize);
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+             const obj={
+              value:10,
+              showfunc:function(){
+                  console.log(this.value)
+                  function inner(){
+                      console.log(this.value)
+                  }
+                  inner() //undefined
+                  inner.call(this)
+              }
+             }
+            // obj.showfunc()
+
+             const obj2={
+              value:10,
+              showfunc:function(){
+                console.log(this.value)
+                 const arrow=()=>{
+                        console.log(this.value) //undefined, bcoz in arrow function the this value refers to the lexical scope,to solve we can use the this.value in a nested
+                    }
+                    arrow()
+              }
+             }
+             obj2.showfunc()
+    </script>
+  </body>
+</html>
